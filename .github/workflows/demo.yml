@@ -13,6 +13,7 @@ jobs:
           cd CIReactNativeDemo
           yarn install
       - name: Run cocoapods
+        run: |
           cd CIReactNativeDemo/ios
           pod install
       - name: Test and build & distribute by fastlane
