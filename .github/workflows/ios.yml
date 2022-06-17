@@ -1,0 +1,14 @@
+name: Demo iOS workflows
+
+on: [push]
+
+jobs:
+  build_ios:
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout source code
+        run: echo "Will checking out source code"
+      - name: Install dependency
+        run: echo "Install dependency"
+      - name: Build and publish app by fastlane 
+        run: echo "Will run a lane"
