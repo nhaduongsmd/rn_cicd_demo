@@ -16,5 +16,10 @@ jobs:
         run: |
           cd RNDemoCICD
           yarn install
+            - name: Run cocoapods
+      - name: Install cocoapods
+        run: |
+          cd RNDemoCICD/ios
+          pod install
       - name: Test, Build and publish app by fastlane 
         run: fastlane dev
