@@ -8,6 +8,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.15.0
       - name: Yarn install
         run: |
           cd RNDemoCICD
