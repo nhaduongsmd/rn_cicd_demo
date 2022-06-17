@@ -18,7 +18,7 @@ jobs:
         run: |
           cd RNDemoCICD
           yarn install
-      - name: run_dev
+      - name: Test, Build and distribute to appcenter
         run: |
           cd RNDemoCICD/android
           fastlane dev

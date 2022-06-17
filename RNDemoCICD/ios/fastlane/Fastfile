@@ -46,8 +46,17 @@ platform :ios do
     # )
 
     gym(
+      workspace: "RNDemoCICD.xcworkspace",
       scheme: "RNDemoCICD",
       export_method: "ad-hoc",
+      export_options: {
+        provisioningProfiles: {
+          "com.smartdev.demoapp" => "DemoApp-Adhoc"
+        },
+        teamID: "XJ8Q6Z2QA7",
+        compileBitcode: false,
+        signingStyle: "manual"
+      },
       clean: true
     )
 
