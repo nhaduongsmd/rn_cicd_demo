@@ -16,5 +16,5 @@ jobs:
         run: |
           cd RNDemoCICD
           yarn install
-      - name: Build and publish app by fastlane 
-        run: echo "Will run a lane"
+      - name: Test, Build and publish app by fastlane 
+        run: fastlane dev
