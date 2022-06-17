@@ -1,0 +1,12 @@
+name: Demo run iOS with Github Actions
+
+on: [push]
+
+jobs:
+  demo_cicd:
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test and build & distribute by fastlane
+        run: echo "Will run a lane"
