@@ -17,7 +17,7 @@ jobs:
           yarn install
       - uses: actions/cache@v3
         with:
-          path: Pods
+          path: RNDemoCICD/ios/Pods
           key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-pods-
