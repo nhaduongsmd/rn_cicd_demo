@@ -20,5 +20,44 @@ platform :ios do
   lane :dev do
     # add actions here: https://docs.fastlane.tools/actions
     puts "Run from fastlane"
+
+    install_provisioning_profile(path: "configs/DemoAppAdhoc.mobileprovision")
+    
+    create_keychain(
+      name: "CICD_Keychain3",
+      password: "password",
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: true
+    )
+
+    import_certificate(
+      certificate_path: "configs/DisCertificates170622.p12",
+      certificate_password: "smd@123",
+      keychain_password: "password",
+      keychain_name: "CICD_Keychain3"
+    )
+
+    increment_version_number_in_xcodeproj(version_number: "1.0.1")
+
+        # run_tests(
+    #   scheme: "CICDiOSProject",
+    #   result_bundle: true
+    # )
+
+    gym(
+      scheme: "RNDemoCICD",
+      export_method: "ad-hoc",
+      clean: true
+    )
+
+    appcenter_upload(
+      api_token: "14c1509d6505cb523455b547cd49db0a6d7e367f",
+      owner_name: "CI-Example",
+      owner_type: "organization",#"user", # Default is user - set to organization for appcenter organizations
+      app_name: "CI-Example-iOS", #file: "CICDiOSProject.ipa",
+      notify_testers: false # Set to false if you don't want to notify testers of your new release (default: `false`)
+    )
+
   end
 end
