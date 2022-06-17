@@ -15,6 +15,12 @@ jobs:
         run: |
           cd RNDemoCICD
           yarn install
+      - uses: actions/cache@v3
+        with:
+          path: Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
       - name: Run cocoapods
         run: |
           cd RNDemoCICD/ios
