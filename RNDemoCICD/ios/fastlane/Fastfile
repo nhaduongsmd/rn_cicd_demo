@@ -40,10 +40,12 @@ platform :ios do
 
     increment_version_number_in_xcodeproj(version_number: "1.0.1")
 
-        # run_tests(
-    #   scheme: "CICDiOSProject",
-    #   result_bundle: true
-    # )
+    run_tests(
+      workspace: "RNDemoCICD.xcworkspace",
+      scheme: "RNDemoCICD",
+      scheme: "CICDiOSProject",
+      result_bundle: true
+    )
 
     gym(
       workspace: "RNDemoCICD.xcworkspace",
