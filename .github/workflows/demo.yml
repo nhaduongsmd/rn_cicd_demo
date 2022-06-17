@@ -8,6 +8,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Yarn install
+        run: |
+          cd CIReactNativeDemo
+          yarn install
+      - name: Run cocoapods
+          cd CIReactNativeDemo/ios
+          pod install
       - name: Test and build & distribute by fastlane
         run: |
           cd RNDemoCICD/ios
