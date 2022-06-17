@@ -7,8 +7,14 @@ jobs:
     runs-on: macOS-latest
     steps:
       - name: Checkout source code
-        run: echo "Will checking out source code"
+        uses: actions/checkout@v2
+      - name: INstall right node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.15.0
       - name: Install dependency
-        run: echo "Install dependency"
+        run: |
+          cd RNDemoCICD
+          yarn install
       - name: Build and publish app by fastlane 
         run: echo "Will run a lane"
