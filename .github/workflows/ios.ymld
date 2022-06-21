@@ -16,7 +16,6 @@ jobs:
         run: |
           cd RNDemoCICD
           yarn install
-            - name: Run cocoapods
       - name: Install cocoapods
         run: |
           cd RNDemoCICD/ios
