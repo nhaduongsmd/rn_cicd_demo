@@ -25,5 +25,7 @@ jobs:
       pod install
     displayName: Install cocoapods
 
-  - script: fastlane dev
+  - script: | 
+      cd RNDemoCICD/ios
+      fastlane dev
     displayName: Test, Build and publish app by fastlane 
