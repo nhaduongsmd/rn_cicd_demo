@@ -10,7 +10,7 @@ pool:
   vmImage: 'macos-latest'
 
 jobs:
-- job: Build iOS
+- job: Build_iOS
   steps:
   - script: fastlane dev p12_pw:$(P12_PW)
     displayName: Running Build
