@@ -10,6 +10,25 @@ pool:
   vmImage: 'macos-latest'
 
 jobs:
+- job: Build_iOS
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '16.x'
+    displayName: 'Install Node.js'
+  - script: |
+      cd RNDemoCICD
+      yarn install
+    displayName: Install dependency
+  - script: |
+      cd RNDemoCICD/ios
+      pod install
+    displayName: Install cocoapods
+
+  - script: | 
+      cd RNDemoCICD/ios
+      fastlane dev
+    displayName: Test, Build and publish app by fastlane 
 - job: Build_Android
   steps:
   - task: NodeTool@0
@@ -20,8 +39,7 @@ jobs:
     inputs:
       versionSpec: '11' 
       jdkArchitectureOption: x64
-      jdkSourceOption: LocalDirectory
-      jdkFile: /builds/openjdk-11.0.2_linux-x64_bin.tar.gz
+      jdkSourceOption: 'PreInstalled'
   - script: |
       cd RNDemoCICD
       yarn install
